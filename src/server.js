@@ -12,7 +12,7 @@ const onRequest = (request, response) => {
       htmlHandler.getIndex(request, response);
       break;
     case '/party.mp4':
-      mediaHandler.getMedia(request, response);
+      mediaHandler.getMedia(request, response, 'video/mp4');
       break;
     case '/client':
       htmlHandler.getIndex(request, response);
@@ -21,10 +21,10 @@ const onRequest = (request, response) => {
       htmlHandler.getClient2(request, response);
       break;
     case '/bling.mp3':
-      mediaHandler.getMedia(request, response);
+      mediaHandler.getMedia(request, response, 'audio/mpeg');
       break;
     case '/bird.mp4':
-      mediaHandler.getMedia(request, response);
+      mediaHandler.getMedia(request, response, 'video/mp4');
       break;
     case '/client3':
       htmlHandler.getClient3(request, response);

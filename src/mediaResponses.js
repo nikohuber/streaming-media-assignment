@@ -1,8 +1,8 @@
 const fs = require('fs');
-const { get } = require('http');
+// const { get } = require('http');
 const path = require('path');
 
-const getMedia = (request, response) => {
+const getMedia = (request, response, type) => {
   const file = path.resolve(__dirname, `../client${request.url}`);
 
   fs.stat(file, (err, stats) => {
@@ -35,7 +35,7 @@ const getMedia = (request, response) => {
       'Content-Range': `bytes ${start}-${end}/${total}`,
       'Accept-Ranges': 'bytes',
       'Content-Length': chunksize,
-      'Content-Type': 'video/mp4',
+      'Content-Type': type,
     });
 
     const stream = fs.createReadStream(file, { start, end });
